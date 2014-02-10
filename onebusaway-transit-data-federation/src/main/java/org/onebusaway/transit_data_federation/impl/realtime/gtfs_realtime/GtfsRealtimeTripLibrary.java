@@ -480,16 +480,16 @@ class GtfsRealtimeTripLibrary {
       StopTimeEvent arrival = stopTimeUpdate.getArrival();
       if (arrival.hasTime()) {
         return (int) (arrival.getTime() - serviceDate / 1000);
-     }
-	  if (arrival.hasDelay()) {
+      }
+      if (arrival.hasDelay()) {
         return (int) ((t - serviceDate) / 1000 - arrival.getDelay());
       }
     }
     if (stopTimeUpdate.hasDeparture()) {
       StopTimeEvent departure = stopTimeUpdate.getDeparture();
-	  if (departure.hasTime()){
+      if (departure.hasTime()) {
         return (int) (departure.getTime() - serviceDate / 1000);
-	  }
+      }
       if (departure.hasDelay()) {
         return (int) ((t - serviceDate) / 1000 - departure.getDelay());
       }
