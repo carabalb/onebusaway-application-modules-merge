@@ -302,18 +302,12 @@ class GtfsRealtimeTripLibrary {
     TripEntry tripEntry = _entitySource.getTrip(trip.getTripId());
     if (tripEntry == null) {
       if (result != null) {
-<<<<<<< HEAD
         _log.debug("reporting unmatched trip with id=" + trip.getTripId());
         result.addUnmatchedTripId(trip.getTripId());
       } else {
         _log.warn("no trip found with id=" + trip.getTripId());
       }
       
-=======
-        result.addUnknownTripId(trip.getTripId());
-      }
-      _log.warn("no trip found with id=" + trip.getTripId());
->>>>>>> 6b07498... RG-264, RG-265, RG-266
       return null;
     }
     BlockEntry block = tripEntry.getBlock();
@@ -342,11 +336,7 @@ class GtfsRealtimeTripLibrary {
     }
     if (instances.isEmpty()) {
       if (result != null) {
-<<<<<<< HEAD
         result.addUnmatchedBlockId(block.getId());
-=======
-        result.addInvalidBlockId(block.getId());
->>>>>>> 6b07498... RG-264, RG-265, RG-266
       }
       _log.warn("could not find any active schedules instance for the specified block="
           + block.getId() + " tripUpdates=" + tripUpdates);
