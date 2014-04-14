@@ -25,8 +25,8 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
         http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
-
-	<!-- define GTFS realtime sources here -->
+    
+	<!-- define GTFS RT sources here -->
 
     <!--  end GTFS realtime sources -->
     <bean class="org.onebusaway.container.spring.SystemPropertyOverrideConfigurer">
@@ -49,6 +49,13 @@
 			</list>
 		</property>
 	</bean>
+     <bean class="org.onebusaway.container.spring.PropertyOverrideConfigurer">
+        <property name="properties">
+            <props>
+                <prop key="cacheManager.cacheManagerName">org.onebusaway.watchdog_webapp.cacheManager</prop>
+            </props>
+        </property>
+    </bean>   
 
     
 </beans>

@@ -191,6 +191,8 @@ public class StopTimeEntriesFactory {
             + pindex.distanceFromTarget);
       } catch (DistanceAlongShapeException ex) {
         _invalidStopToShapeMappingExceptionCount++;
+      } catch (IllegalArgumentException iae) {
+        _log.warn("Stop has illegal coordinates along shapes=" + shapePoints);
       }
     }
 
